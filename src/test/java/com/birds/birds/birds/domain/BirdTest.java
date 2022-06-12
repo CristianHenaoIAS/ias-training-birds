@@ -2,6 +2,7 @@ package com.birds.birds.birds.domain;
 
 import com.birds.birds.application.domain.Bird;
 import com.birds.birds.application.domain.valueObjects.*;
+import com.birds.birds.infrastructure.models.BirdDTO;
 
 public class BirdTest {
     public static void main(String[] args){
@@ -16,5 +17,13 @@ public class BirdTest {
         }catch (NullPointerException | IllegalArgumentException exception){
             System.out.println(exception.getMessage());
         }
+
+        BirdDTO birdDTO = new BirdDTO(1L, "nombre comun", 300, "Nombre cientifico", "zona", null);
+
+        Bird bird = birdDTO.toDomain();
+        System.out.println("dto example" + bird);
+
+        BirdDTO birdDTO1 = BirdDTO.fromDomain(bird);
+        System.out.println("from domain" + birdDTO1);
     }
 }
