@@ -24,7 +24,7 @@ public class PostgreSqlBirdRepository implements BirdRepository {
 
     @Override
     public void store(Bird bird) {
-        String sql = "insert into tbl_birds (common_name, scientific_name, zone_name, confirmed_quantity) values (? ,? , ?, ?)";
+        String sql = "insert into tbl_aves (nombre_comun, nombre_cientifico, nombre_zona, cantidad_confirmada) values (? ,? , ?, ?)";
         try (Connection connection = dataSource.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -44,7 +44,7 @@ public class PostgreSqlBirdRepository implements BirdRepository {
 
     @Override
     public Optional<Bird> get(BirdId birdId) {
-        String sql = "select * from tbl_birds where id = ?";
+        String sql = "select * from tbl_aves where id = ?";
         try(Connection connection = dataSource.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -70,8 +70,8 @@ public class PostgreSqlBirdRepository implements BirdRepository {
 
     @Override
     public void update(Bird bird) {
-        String sql = "update tbl_birds set common_name = ?, scientific_name = ?, zone_name = ?," +
-                    " confirmed_quantity = ? where id = ?";
+        String sql = "update tbl_aves set nombre_comun = ?, nombre_cientifico = ?, nombre_zona = ?," +
+                    " cantidad_confirmada = ? where id = ?";
         try(Connection connection = dataSource.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -92,7 +92,7 @@ public class PostgreSqlBirdRepository implements BirdRepository {
 
     @Override
     public boolean delete(BirdId birdId) {
-        String sql = "Delete from tbl_birds Where id = ?";
+        String sql = "Delete from tbl_aves Where id = ?";
         try (Connection connection = dataSource.getConnection()){
              PreparedStatement preparedStatement = connection.prepareStatement(sql);
 

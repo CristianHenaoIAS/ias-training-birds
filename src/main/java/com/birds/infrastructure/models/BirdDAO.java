@@ -89,10 +89,10 @@ public class BirdDAO {
     public static BirdDAO fromResultSet(ResultSet resultSet) throws SQLException {
         BirdDAO birdDAO = new BirdDAO();
         birdDAO.setBirdId(resultSet.getLong("id"));
-        birdDAO.setCommonName(resultSet.getString("common_name"));
-        birdDAO.setConfirmedQuantity(resultSet.getInt("confirmed_quantity"));
-        birdDAO.setScientificName(resultSet.getString("scientific_name"));
-        birdDAO.setZoneName(resultSet.getString("zone_name"));
+        birdDAO.setCommonName(resultSet.getString("nombre_comun"));
+        birdDAO.setConfirmedQuantity(resultSet.getInt("cantidad_confirmada"));
+        birdDAO.setScientificName(resultSet.getString("nombre_cientifico"));
+        birdDAO.setZoneName(resultSet.getString("nombre_zona"));
 
         return  birdDAO;
     }
